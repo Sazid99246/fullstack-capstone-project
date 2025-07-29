@@ -6,7 +6,7 @@ const connectToDatabase = require('../models/db');
 // Search for gifts
 router.get('/', async (req, res, next) => {
     try {
-        const db = await connectToDatabase()
+        const db = await connectToDatabase();
         const collection = db.collection("gifts");
         let query = {};
 
@@ -20,7 +20,7 @@ router.get('/', async (req, res, next) => {
                 query.category = req.query.category;
             }
             if (req.query.condition) {
-                query.condition = req.query.condition
+                query.condition = req.query.condition;
             }
             if (req.query.age_years) {
                 query.age_years = { $lte: parseInt(req.query.age_years) };
